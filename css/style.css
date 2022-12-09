@@ -1049,7 +1049,7 @@ button#open:hover, button#close:hover{
 }
 /* End Scroll To Top */
 /* Start Wrapper ( Click Right ) */
-.wrapper{
+/* .wrapper{
   visibility: hidden;
   position: absolute;
   z-index: 1000000;
@@ -1124,5 +1124,5 @@ button#open:hover, button#close:hover{
 .share:hover .share-menu{
   opacity: 1;
   pointer-events: auto
-}
+} */
 /* End Wrapper ( Click Right ) */
