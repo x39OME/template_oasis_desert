@@ -1,2 +1,2 @@
 # template_oasis_desert
-New Project Using HTML\CSS &amp; Vanilla Javascript 
+New Project Using HTML\CSS &amp; Vanilla Javascript With Dark Mode
