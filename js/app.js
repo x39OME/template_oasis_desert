@@ -51,30 +51,30 @@ window.onscroll = function () {
     });
   }
   // section Landscapes
-  if (window.scrollY >= landscapes.offsetTop) {
+  if (window.scrollY >= landscapes.offsetTop + -300) {
     transformLeft.forEach((land) => {
       land.style.transform = "translateX(0px)"
     });
   }
   // section Stories
-  if (window.scrollY >= stories.offsetTop) {
+  if (window.scrollY >= stories.offsetTop + -300) {
     transformBottom.forEach((story) => {
       story.style.transform = "translateY(0px)"
     });
   }
   // section Gallery
-  if (window.scrollY >= gallery.offsetTop) {
+  if (window.scrollY >= gallery.offsetTop + -300) {
     scale.forEach((gall) => {
       gall.style.transform = "scale(1,1)"
     });
   }
   // section Desert
-  if (window.scrollY >= desert.offsetTop) {
+  if (window.scrollY >= desert.offsetTop + -300) {
     transformLeftTop.forEach((des) => {
       des.style.transform = "translate(0px, 0px)"
     });
   }
-  if (window.scrollY >= desert.offsetTop) {
+  if (window.scrollY >= desert.offsetTop + -300) {
     Opac.forEach((des) => {
       des.style.opacity = "1"
       des.style.transform = "translateX(0px)"
