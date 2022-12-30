@@ -6,13 +6,14 @@
   box-sizing: border-box;
 }
 :root{
-  --mainColor:#777; /*#2C2D2A*/
+  --mainColor:#777;
   --textColor:#ccc;
   --secColor:#2C2D2A;
   --thrColor:#FAEBD7;
   --goldColor:#A5935D;
   --mainPadding: 100px;
   --mainTransition: .5s;
+  --fontSize:1.125rem;
   --fontTitle: 'Alex Brush', cursive;
   --fontSpecial:'Zen Dots', cursive;
 }
@@ -194,6 +195,7 @@ a{
   padding: 0 20px;
   font-size: 19px;
   position: relative;
+  z-index: 9;
 }
 .darkMode .navbar .nav .navigation > li > a{
   color: var(--secColor);
@@ -209,7 +211,7 @@ a{
     top: 72px;
     right: 0;
     width: 0;
-    height: 0;
+    height: 800px;
     background: var(--secColor);
     transition: var(--mainTransition);
   }
@@ -218,7 +220,6 @@ a{
   }
   .navbar .nav .navigation.active{
     width: 200px;
-    height: 800px;
   }
   .navbar .nav .navigation > li{
     padding: 10px 20px 10px 5px;
@@ -229,20 +230,27 @@ a{
   content: "";
   position: absolute;
   top: 50%;
-  left: 0;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
+  left:50%;
+  width:0;
+  height:0;
+  border-radius: 4px;
   background-color: var(--thrColor);
   transition: var(--mainTransition);
-  transform: translateY(-50%);
-  animation: up-down 2s linear infinite;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+.navbar .nav .navigation > li > a:hover{
+  color: var(--secColor);
+}
+.darkMode .navbar .nav .navigation > li > a:hover{
+  color: var(--thrColor);
+}
+.navbar .nav .navigation > li > a:hover::before{
+  width: 100%;
+  height: 100%;
 }
 .darkMode .navbar .nav .navigation > li > a::before{
   background-color: var(--secColor);
-}
-.navbar .nav .navigation > li > a:hover::before{
-  animation-play-state: paused;
 }
 /* Start Dark Mode */
 label{
@@ -250,7 +258,7 @@ label{
 }
 label .action{
   cursor: pointer;
-  color: #777;
+  color: var(--mainColor);
 }
 label .action input {
   appearance: none;
@@ -522,34 +530,37 @@ label .action input:checked ~ i::before{
   color: var(--thrColor);
 }
 .landscapes .box-content h6{
-  font-size: 18px;
+  margin-bottom: 15px;
+  font-size: 1rem;
   text-transform: uppercase;
   color: var(--goldColor);
   letter-spacing:2px
 }
 .landscapes .box-content h1{
   color: var(--secColor);
-  font-weight: 300;
-  margin: 20px auto 0 0;
+  font-weight: 400;
 }
 .landscapes .box-content p{
-  margin: 20px 2px 0 0;
   font-family: Roboto,sans-serif !important;
-  color: var(--secColor);
+  color:var(--mainColor);
+  font-size: .9rem;
+  font-weight: 600;
 }
 .darkMode .landscapes .box-content p{
   color: var(--textColor);
 }
 .landscapes .box-content div.link{
-  margin: 20px 1px 0 0;
+  margin: 20px 0 0;
   font-size: 17px;
+  font-weight: 600;
+  font-size: .8rem;
 }
 .landscapes .box-content .line{
-  max-width: 513px;
-  height: 1px;
+  width: calc(100% - 60px);
+  height: 2px;
   transform-origin: left center;
   margin: 40px auto 0 0;
-  background-color: var(--secColor);
+  background-color: var(--goldColor);
 }
 .darkMode .landscapes .box-content .line{
   background: var(--goldColor);
@@ -619,6 +630,7 @@ label .action input:checked ~ i::before{
 @media(max-width:768px){
   .stories .story{
     flex-direction: column;
+    gap: 40px;
   }
 }
 .stories .story .box{
@@ -640,24 +652,43 @@ label .action input:checked ~ i::before{
 .stories .story .box h4{
   margin: 20px 0;
   color: var(--secColor);
+  font-size: 1.5rem;
 }
 .darkMode .stories .story .box h4{
   color: var(--thrColor);
 }
 .stories .story .box p{
   text-align: center;
+  font-size: var(--fontSize);
+  color: var(--mainColor);
 }
 .darkMode .stories .story .box p{
   color: var(--textColor);
 }
 .stories .container span{
-  margin-top: 40px;
+  margin-top: 30px;
   color: var(--goldColor);
+  font-size: .8rem;
+  font-weight: 600;
+  text-align: center;
+  border: 2px solid;
+  padding: 5px;
 }
 .stories .container a{
-  margin-top: 5px;
+  margin-top: 15px;
   text-decoration: underline;
   color: var(--mainColor);
+  font-size: .7rem;
+  font-weight: 600;
+  border: 2px solid;
+  padding: 5px;
+  transition: var(--mainTransition);
+  text-decoration: none;
+}
+.stories .container a:hover{
+  background-color: var(--mainColor);
+  color: var(--thrColor);
+  border-color: var(--goldColor);
 }
 /* End Stories */
 /* Start Gallery */
@@ -678,7 +709,8 @@ label .action input:checked ~ i::before{
 }
 .gallery .text p{
   color: var(--secColor);
-  text-align:center
+  text-align:center;
+  font-size: var(--fontSize);
 }
 .darkMode .gallery .text p{
   color:var(--textColor);
@@ -841,7 +873,7 @@ label .action input:checked ~ i::before{
   margin: 0 auto;
   font-family: var(--fontSpecial);
   color: var(--secColor);
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 }
 .darkMode .desert .welcome h3{
   color: var(--thrColor);
@@ -861,11 +893,8 @@ label .action input:checked ~ i::before{
   color: var(--goldColor);
 }
 .desert .welcome p{
-  font-size: 1.125rem;
+  font-size: var(--fontSize);
   line-height: 2;
-  letter-spacing: 0px;
-  font-weight: 400;
-  text-transform: none;
   margin: 46px auto 0;
   color: var(--secColor);
 }
@@ -936,14 +965,6 @@ label .action input:checked ~ i::before{
 @keyframes moveup{
   100%{
     opacity: 1;
-  }
-}
-@keyframes up-down{
-  0%,100%{
-    left: 0;
-  }
-  50%{
-    left: 10px;
   }
 }
 /* End Animation */
