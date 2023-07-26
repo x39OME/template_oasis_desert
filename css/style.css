@@ -380,6 +380,7 @@ label .action input:checked ~ i::before{
   text-align: center;
   color: var(--secColor);
   font-family: var(--fontSpecial);
+  height: 50px;
 }
 .darkMode .slider .auto-text p{
   color: var(--thrColor);
